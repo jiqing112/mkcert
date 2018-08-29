@@ -24,12 +24,12 @@ The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.
 
 <p align="center"><img width="444" alt="Chrome screenshot" src="https://user-images.githubusercontent.com/1225294/41887838-7acd55ca-78d0-11e8-8a81-139a54faaf87.png"></p>
 
-使用来自真实机构的证书 (CAs)区开发是一件危险或者不可能的事情，  (比如主机是 `localhost` 或者 `127.0.0.1`), 自签名证书也有可能导致信任错误. 管理自己的 CA 是最好的解决办法,但是通常涉及到晦涩的命令，专业知识和手动步骤。
-mkcert 通过系统root自动创建和安装一个本地CA  ,并且自动生成一个可信任的证书
+使用来自真实机构的证书 (CAs)开发是一件危险或者不可能的事情，  (比如主机是 `localhost` 或者 `127.0.0.1`), 自签名证书也有可能导致信任错误. 管理自己的 CA 是最好的解决办法,但是通常涉及到晦涩的命令，专业知识和手动步骤。
+mkcert 通过系统root自动创建和安装一个本地CA  ,并且自动生成一个可信任的证书的工具
 
 ## 安装
 
-> **Warning**: the `rootCA-key.pem` file that mkcert automatically generates gives complete power to intercept secure requests from your machine. Do not share it.
+> **警告**:   mkcert自动生成的文件`rootCA-key.pem`提供了完整的功能来拦截来自您机器的安全请求。 不要分享它。
 
 ### macOS
 
@@ -110,9 +110,9 @@ mkcert supports the following root stores:
 
 为了能让证书被移动设备信任， 你需要安装 root CA. 这是一个在文件夹中被 `mkcert -CAROOT`输出的`rootCA.pem` 文件.
 
-On iOS, you can either use AirDrop, email the CA to yourself, or serve it from an HTTP server. After installing it, you must [enable full trust in it](https://support.apple.com/en-nz/HT204477). **Note**: earlier versions of mkcert ran into [an iOS bug](https://forums.developer.apple.com/thread/89568), if you can't see the root in "Certificate Trust Settings" you might have to update mkcert and [regenerate the root](https://github.com/FiloSottile/mkcert/issues/47#issuecomment-408724149).
+在iOS上，您可以使用AirDrop，通过电子邮件将CA发送给自己，也可以从HTTP服务器提供。 安装后，你必须[开启完全信任](https://support.apple.com/en-nz/HT204477). **注意**: 早期版本的mkcert会有一个 [iOS bug](https://forums.developer.apple.com/thread/89568),如果在“证书信任设置”中看不到root，则可能需要更新mkcert 和 [重新生成 root](https://github.com/FiloSottile/mkcert/issues/47#issuecomment-408724149).
 
-For Android, you will have to install the CA and then enable user roots in the development build of your app. See [this StackOverflow answer](https://stackoverflow.com/a/22040887/749014).
+Android需要安装 CA 并在你的开发构建的app开启用户权限 详见 [this StackOverflow answer](https://stackoverflow.com/a/22040887/749014).
 
 ### 修改本地的CA文件
 
